@@ -241,14 +241,14 @@ echo("you are using a javascript port of PCL5. PCL5 was made by andyh2, Mike, Ch
 abstract class PCL {
 	//TODO: can javascript classes even be abstract?
 	//Public members
-	public config = array();
+	public config = new Array();
 	public emotes;
 	public error = -1;
 	public errort = "No error has ocurred\n";
-	public itemlist = array();
+	public itemlist = new Array();
 	public key = '';
 	public objPlayer; // Object of the Player class
-	public arrPlayers = array(); // Array containing Player objects
+	public arrPlayers = new Array(); // Array containing Player objects
 	public room = 0;
 	public roomlist;
 	public safelist;
@@ -260,7 +260,7 @@ abstract class PCL {
 
 	//Private members
 	private _ticks = 0;
-	private _events = array();
+	private _events = new Array();
 
 	// Constructor of the Pickle Class. It Parses the ini files, and initialises input streams
 	function __construct() {
@@ -440,7 +440,7 @@ abstract class PCL {
 		packet = packet[0];
 		servlist = packet[7];
 		servlist = explode("|", servlist);
-		this.serverlist = array();
+		this.serverlist = new Array();
 		foreach (servlist as server) {
 			dataserv = explode(",", server);
 			this.serverlist[dataserv[0]] = dataserv[1];
@@ -467,9 +467,9 @@ abstract class PCL {
 		packet = this.packetInArray('jr', packets);
 		this.intRoomID = packet[1];
 		this.extRoomID = packet[2];
-		this.arrPlayers = array();
+		this.arrPlayers = new Array();
 		this.room = array();
-		this.room[this.extRoomID] = array();
+		this.room[this.extRoomID] = new Array();
 		foreach (packet as key => player) {
 			if (!(key <= 4)) {
 				id = '|' + player;
@@ -910,7 +910,7 @@ class Pickle extends PCL {
 		data = this.readRawPacket();
 		if(stripos(data, 'xt%e%')){
 			error = data.between('%xt%e%-1%', '%');
-			ret = array();
+			ret = new Array();
 			ret[] = data;
 			ret[] = DEFAULT_ERROR;
 			ret[] = error;
