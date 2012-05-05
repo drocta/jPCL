@@ -6,4 +6,6 @@ If you want to work on it please view the file showing what functions have yet t
 and translate one or more of those.
 Or you could improve some other part of it.
 
-This will probably use/uses jsocket
+This will not use jSocket because of flash's cross domain policy.
+it instead will use
+http://stephengware.com/proj/javasocketbridge/
