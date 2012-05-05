@@ -1,5 +1,5 @@
-function echo(text){
-	//do the one thing that outputs text to the console
+function echo(textecho){
+	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML . textecho;
 }
 /*
 the long file unpacking thing is here. We are going to do that some other way, not a direct translation
