@@ -2,10 +2,10 @@ funcsundefined{
 define();
 array();
 differences in foreach()
-stream_set_blocking(STDIN, false);
+stream_set_blocking();
 time()
 this.process_packets();
-array_key_exists(intId, this.servers)
+array_key_exists()
 strtoupper();
 ord()
 urlencode()
