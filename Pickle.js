@@ -295,7 +295,7 @@ abstract class PCL {
 				this.process_packets();
 				if (time() >= time) {
 						time = time() + ticktime;
-						this.raiseEvent('tick', array());
+						this.raiseEvent('tick', new Array());
 				}
 			}
 			fclose(this.sock);
@@ -468,7 +468,7 @@ abstract class PCL {
 		this.intRoomID = packet[1];
 		this.extRoomID = packet[2];
 		this.arrPlayers = new Array();
-		this.room = array();
+		this.room = new Array();
 		this.room[this.extRoomID] = new Array();
 		foreach (packet as key => player) {
 			if (!(key <= 4)) {
@@ -573,7 +573,7 @@ abstract class PCL {
 			
 			
 		foreach (this._events[event] as event) {
-			call_user_func_array(event, array_merge(array(this), data));
+			call_user_func_array(event, array_merge(new Array(this), data));
 		}
 	}
 	public function __call(function, args) {
