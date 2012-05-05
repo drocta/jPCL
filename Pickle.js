@@ -196,12 +196,12 @@ $ removed
 -> changed to .
 its possible more should be changed but I don't know javascript very well, and I don't have internet connection right now.
 */
-//I don't know what the point of the php fork class is, so I will ignore it for now.
+//I don't think the php fork class is neccisarry for this, so I will ignore it for now.
 
 //Util functions start
 
-//function strigbet(){}
-//function strgbet(){}
+//function stribet(){}//replaces with between as defined below
+//function strbet(){}
 String.prototype.between = function(prefix, suffix){
 	s=this;
 	var i = s.indexOf(prefix);
