@@ -62,29 +62,30 @@ get the list of rooms and servers and emoticons and stuff
 function Player() {
 	// Private members
 	//javascript doesnt support the private tag, and I don't see the problem in removing them, so here goes.
-	var intID = 0;
-		strUsername = "";
-		intColor = 0;
-		intHead = 0;
-		intFace = 0;
-		intNeck = 0;
-		intBody = 0;
-		intHand = 0;
-		intFeet = 0;
-		intFlag = 0;
-		intPhoto = 0;
-		intX = 0;
-		intY = 0;
-		f12 = 0;
-		blnIsMember = false;
-		intMemberDays = 0;
-		blnIsAproved = 0;
-		intFrame = 0;
-		intAge = -1;
-		intCoins = -1;
-		intMemberRemaining = -1;
-		intMinutesPlayed = -1;
-		intTimeZoneOffset = -1;
+	//var 
+	this.intID = 0;
+	this.strUsername = "";
+	this.intColor = 0;
+	this.intHead = 0;
+	this.intFace = 0;
+	this.intNeck = 0;
+	this.intBody = 0;
+	this.intHand = 0;
+	this.intFeet = 0;
+	this.intFlag = 0;
+	this.intPhoto = 0;
+	this.intX = 0;
+	this.intY = 0;
+	this.f12 = 0;
+	this.blnIsMember = false;
+	this.intMemberDays = 0;
+	this.blnIsAproved = 0;
+	this.intFrame = 0;
+	this.intAge = -1;
+	this.intCoins = -1;
+	this.intMemberRemaining = -1;
+	this.intMinutesPlayed = -1;
+	this.intTimeZoneOffset = -1;
 	//jslint wanted me to combine all the declarations.
 	//end variables that said private before them. the private is removed because javascript. Might have to undo that...
 	// Constructor method
