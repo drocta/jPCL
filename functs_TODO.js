@@ -6,7 +6,7 @@ differences in foreach()
 stream_set_blocking();
 time()
 this.process_packets();
-array_key_exists()
+//array_key_exists()//done*
 strtoupper();
 ord()
 urlencode()
