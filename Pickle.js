@@ -63,28 +63,29 @@ function Player() {
 	// Private members
 	//javascript doesnt support the private tag, and I don't see the problem in removing them, so here goes.
 	var intID = 0;
-	var strUsername = "";
-	var intColor = 0;
-	var intHead = 0;
-	var intFace = 0;
-	var intNeck = 0;
-	var intBody = 0;
-	var intHand = 0;
-	var intFeet = 0;
-	var intFlag = 0;
-	var intPhoto = 0;
-	var intX = 0;
-	var intY = 0;
-	var f12 = 0;
-	var blnIsMember = false;
-	var intMemberDays = 0;
-	var blnIsAproved = 0;
-	var intFrame = 0;
-	var intAge = -1;
-	var intCoins = -1;
-	var intMemberRemaining = -1;
-	var intMinutesPlayed = -1;
-	var intTimeZoneOffset = -1;
+		strUsername = "";
+		intColor = 0;
+		intHead = 0;
+		intFace = 0;
+		intNeck = 0;
+		intBody = 0;
+		intHand = 0;
+		intFeet = 0;
+		intFlag = 0;
+		intPhoto = 0;
+		intX = 0;
+		intY = 0;
+		f12 = 0;
+		blnIsMember = false;
+		intMemberDays = 0;
+		blnIsAproved = 0;
+		intFrame = 0;
+		intAge = -1;
+		intCoins = -1;
+		intMemberRemaining = -1;
+		intMinutesPlayed = -1;
+		intTimeZoneOffset = -1;
+	//jslint wanted me to combine all the declarations.
 	//end variables that said private before them. the private is removed because javascript. Might have to undo that...
 	// Constructor method
 	 this.__construct = function(data2, blnIsMe = false, packet = false) {
