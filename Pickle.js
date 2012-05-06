@@ -61,30 +61,31 @@ get the list of rooms and servers and emoticons and stuff
 //class Player {
 function Player() {
 	// Private members
-	private intID = 0;
-	private strUsername = "";
-	private intColor = 0;
-	private intHead = 0;
-	private intFace = 0;
-	private intNeck = 0;
-	private intBody = 0;
-	private intHand = 0;
-	private intFeet = 0;
-	private intFlag = 0;
-	private intPhoto = 0;
-	private intX = 0;
-	private intY = 0;
-	private f12 = 0;
-	private blnIsMember = false;
-	private intMemberDays = 0;
-	private blnIsAproved = 0;
-	private intFrame = 0;
-	private intAge = -1;
-	private intCoins = -1;
-	private intMemberRemaining = -1;
-	private intMinutesPlayed = -1;
-	private intTimeZoneOffset = -1;
-	
+	//javascript doesnt support the private tag, and I don't see the problem in removing them, so here goes.
+	intID = 0;
+	strUsername = "";
+	intColor = 0;
+	intHead = 0;
+	intFace = 0;
+	intNeck = 0;
+	intBody = 0;
+	intHand = 0;
+	intFeet = 0;
+	intFlag = 0;
+	intPhoto = 0;
+	intX = 0;
+	intY = 0;
+	f12 = 0;
+	blnIsMember = false;
+	intMemberDays = 0;
+	blnIsAproved = 0;
+	intFrame = 0;
+	intAge = -1;
+	intCoins = -1;
+	intMemberRemaining = -1;
+	intMinutesPlayed = -1;
+	intTimeZoneOffset = -1;
+	//end variables that said private before them. the private is removed because javascript. Might have to undo that...
 	// Constructor method
 	 this.__construct = function(data2, blnIsMe = false, packet = false) {
 		if (is_numeric(data2))
