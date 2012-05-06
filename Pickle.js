@@ -50,7 +50,11 @@ class Player {
 	// Constructor method
 	function __construct(data2, blnIsMe = false, packet = false) {
 		if (is_numeric(data2))
-			return array('id' => data2);
+			return {"id":data2};//array('id' => data2);//TODO this might be a problem, depending on things.
+			//alternatively use
+			/*var returnthis = new Array();
+			returnthis['id']=data2;
+			return returnthis;*/
 		data = explode('|', data2);
         if(!blnIsMe){
            this.intID = data[0];
