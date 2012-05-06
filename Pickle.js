@@ -2,11 +2,12 @@ function echo(textecho) {
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
 }
 function array_key_exists(key, array) {
-	if (key in array) {
+	return (key in array);
+	/*if (key in array) {
 		return true;
 	} else {
 		return false;
-	}
+	}*/
 }
 function ord(string) {
     //found on phpjs.org
