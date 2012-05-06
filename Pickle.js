@@ -57,7 +57,9 @@ get the list of rooms and servers and emoticons and stuff
  * @author Test
  * @version 0.0.2
 */
-class Player {
+//turns out javascript has a really strange thing for making classes...
+//class Player {
+function Player() {
 	// Private members
 	private intID = 0;
 	private strUsername = "";
@@ -84,7 +86,7 @@ class Player {
 	private intTimeZoneOffset = -1;
 	
 	// Constructor method
-	function __construct(data2, blnIsMe = false, packet = false) {
+	 this.__construct = function(data2, blnIsMe = false, packet = false) {
 		if (is_numeric(data2))
 			return {"id":data2};//array('id' => data2);//TODO this might be a problem, depending on things.
 			//alternatively use
@@ -140,91 +142,91 @@ class Player {
      }
 	
 	// Accesor methods
-	function getID() {
+	this.getID = function() {
 		return this.intID;	
 	}
 	
-	function getUsername() {
+	getUsername = function() {
 		return this.strUsername;	
 	}
 	
-	function getAge() {
+	this.getAge = function() {
 		return this.intAge;	
 	}
 	
-	function getCoins() {
+	this.getCoins = function() {
 		return this.intCoins;	
 	}
 	
-	function isMember() {
+	this.isMember = function() {
 		return this.blnIsMember;
 	}
 	
-	function getMemberDays() {
+	this.getMemberDays = function() {
 		return this.intMemberDays;
 	}
 		
-	function getMemberRemaining() {
+	this.getMemberRemaining = function() {
 		return this.intMemberRemaining;	
 	}
 	
-	function isApproved() {
+	this.isApproved = function() {
 		return this.blnIsAproved;
 	}
 	
-	function getPositionX() {
+	this.getPositionX = function() {
 		return this.intX;	
 	}
 	
-	function getPositionY() {
+	this.getPositionY = function() {
 		return this.intY;	
 	}
 	
-	function getColor() {
+	this.getColor = function() {
 		return this.intColor;	
 	}
 	
-	function getHeadItem() {
+	this.getHeadItem = function() {
 		return this.intHead;	
 	}
 
-	function getFaceItem() {
+	this.getFaceItem = function() {
 		return this.intFace;   
 	}
 	
-	function getNeckItem() {
+	this.getNeckItem = function() {
 		return this.intNeck;	
 	}
 	
-	function getBodyItem() {
+	this.getBodyItem = function() {
 		return this.intBody;	
 	}
 		
-	function getFeetItem() {
+	this.getFeetItem = function() {
 		return this.intFeet;	
 	}
 
-	function getHandItem() {
+	this.getHandItem = function() {
 		return this.intHand;	
 	}
 
-	function getFlagItem() {
+	this.getFlagItem = function() {
 		return this.intFlag;	
 	}
 	
-	function getPhoto() {
+	this.getPhoto = function() {
 		return this.intPhoto;	
 	}
 	
-	function getFrame() {
+	this.getFrame = function() {
 		return this.intFrame;	
 	}
 	
-	function getTimeZoneOffset() {
+	this.getTimeZoneOffset = function() {
 		return this.intTimeZoneOffset;	
 	}
 	
-	function getMinutesPlayed() {
+	this.getMinutesPlayed = function() {
 		return this.intMinutesPlayed;
 	}
 	
