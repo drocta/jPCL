@@ -89,62 +89,61 @@ function Player() {
 	//jslint wanted me to combine all the declarations.
 	//end variables that said private before them. the private is removed because javascript. Might have to undo that...
 	// Constructor method
-	 this.__construct = function (data2, blnIsMe, packet) {
-		blnIsMe = (typeof blnIsMe === "undefined") ? false  :blnIsMe;
+	this.__construct = function (data2, blnIsMe, packet) {
+		blnIsMe = (typeof blnIsMe === "undefined") ? false  : blnIsMe;
 		packet = (typeof packet === "undefined") ? false : packet;
-		if (is_numeric(data2))
-			return {"id":data2};//array('id' => data2);//TODO this might be a problem, depending on things.
+		if (is_numeric(data2)) return {"id": data2};//array('id' => data2);//TODO this might be a problem, depending on things.
 			//alternatively use
 			/*var returnthis = new Array();
 			returnthis['id']=data2;
 			return returnthis;*/
-		data = explode('|', data2);
-        if(!blnIsMe){
-           this.intID = data[0];
-           this.strUsername = data[1];
-           // [2] isn't saved for now
-           this.intColor = data[3];
-           this.intHead = data[4];
-           this.intFace = data[5];
-           this.intNeck = data[6];
-           this.intBody = data[7];
-           this.intHand = data[8];
-           this.intFeet = data[9];
-           this.intFlag = data[10];
-           this.intPhoto = data[11];
-           this.intX = data[12];
-           this.intY = data[13];
-           this.f12 = data[14];
-           this.blnIsMember = (boolean)data[15];
-           this.intMemberDays = data[16];
-        } else {
-           this.intID = data[0];
-           this.strUsername = data[1];
-           // [2] isn't saved for now
-           this.intColor = data[3];
-           this.intHead = data[4];
-           this.intFace = data[5];
-           this.intNeck = data[6];
-           this.intBody = data[7];
-           this.intHand = data[8];
-           this.intFeet = data[9];
-           this.intFlag = data[10];
-           this.intPhoto = data[11];
-           this.intX = data[12];
-           this.intY = data[13];
-           this.f12 = data[14];
-           this.blnIsMember = (boolean)data[15];
-           this.intMemberDays = @data[16];
-           if(packet !== false){
-              array_shift(packet);
-              this.intAge = packet[6];
-              this.intCoins = packet[2];
-              this.intMemberRemaining = packet[9];
-              this.intMinutesPlayed = packet[8];
-              this.intTimeZoneOffset = packet[10];
-           }
-        }
-     }
+		var data = explode('|', data2);
+		if (!blnIsMe) {
+		   	this.intID = data[0];
+		   	this.strUsername = data[1];
+			// [2] isn't saved for now
+		   	this.intColor = data[3];
+			this.intHead = data[4];
+			this.intFace = data[5];
+			this.intNeck = data[6];
+			this.intBody = data[7];
+			this.intHand = data[8];
+			this.intFeet = data[9];
+			this.intFlag = data[10];
+			this.intPhoto = data[11];
+			this.intX = data[12];
+			this.intY = data[13];
+			this.f12 = data[14];
+			this.blnIsMember = (boolean)data[15];
+			this.intMemberDays = data[16];
+		} else {
+			this.intID = data[0];
+			this.strUsername = data[1];
+			 // [2] isn't saved for now
+			this.intColor = data[3];
+			this.intHead = data[4];
+			this.intFace = data[5];
+			this.intNeck = data[6];
+			this.intBody = data[7];
+			this.intHand = data[8];
+			this.intFeet = data[9];
+			this.intFlag = data[10];
+			this.intPhoto = data[11];
+			this.intX = data[12];
+			this.intY = data[13];
+			this.f12 = data[14];
+			this.blnIsMember = (boolean)data[15];
+			this.intMemberDays = @data[16];
+			if(packet !== false){
+				array_shift(packet);
+				this.intAge = packet[6];
+				this.intCoins = packet[2];
+				this.intMemberRemaining = packet[9];
+				this.intMinutesPlayed = packet[8];
+				this.intTimeZoneOffset = packet[10];
+			}
+		}
+	}
 	
 	// Accesor methods
 	this.getID = function() {
