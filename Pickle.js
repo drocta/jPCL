@@ -1,15 +1,14 @@
 function echo(textecho){
-	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML . textecho;
+	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
 }
-function array_key_exists(key, array){
-	if(key in array){
+function array_key_exists(key, array) {
+	if (key in array) {
 		return true;
-		
-	}else{
+	} else {
 		return false;
 	}
 }
-function ord (string) {
+function ord(string) {
     //found on phpjs.org
     // http://kevin.vanzonneveld.net
     // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
