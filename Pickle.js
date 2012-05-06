@@ -89,9 +89,9 @@ function Player() {
 	//jslint wanted me to combine all the declarations.
 	//end variables that said private before them. the private is removed because javascript. Might have to undo that...
 	// Constructor method
-	 this.__construct = function(data2, blnIsMe, packet) {
-		blnIsMe = (typeof blnIsMe === "undefined")?false:blnIsMe;
-		packet = (typeof packet === "undefined")?false:packet;
+	 this.__construct = function (data2, blnIsMe, packet) {
+		blnIsMe = (typeof blnIsMe === "undefined") ? false  :blnIsMe;
+		packet = (typeof packet === "undefined") ? false : packet;
 		if (is_numeric(data2))
 			return {"id":data2};//array('id' => data2);//TODO this might be a problem, depending on things.
 			//alternatively use
