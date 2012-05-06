@@ -8,7 +8,7 @@ time()
 this.process_packets();
 //array_key_exists()//done*
 strtoupper();
-ord()
+//ord()//done*
 urlencode()
 file_get_contents();
 stripos() 
