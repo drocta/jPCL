@@ -1,6 +1,14 @@
 function echo(textecho){
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML . textecho;
 }
+function array_key_exists(key, array){
+	if(key in array){
+		return true;
+		
+	}else{
+		return false;
+	}
+}
 /*
 the long file unpacking thing is here. We are going to do that some other way, not a direct translation
 */
