@@ -1,6 +1,7 @@
 funcsundefined{
+//a bunch of variables need to be defined with var
 define();
-array();
+array();//probably mostly done.
 differences in foreach()
 stream_set_blocking();
 time()
