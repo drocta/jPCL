@@ -1,4 +1,4 @@
-function echo(textecho){
+function echo(textecho) {
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
 }
 function array_key_exists(key, array) {
