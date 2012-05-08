@@ -133,7 +133,7 @@ function Player() {
 			this.intY = data[13];
 			this.f12 = data[14];
 			this.blnIsMember = (boolean)data[15];
-			this.intMemberDays = @data[16];
+			this.intMemberDays = data[16];
 			if(packet !== false){
 				array_shift(packet);
 				this.intAge = packet[6];
@@ -546,7 +546,7 @@ abstract class PCL {
 	    // Supress errors and warnings on invalid packets
 	    // These warnings can occur when sending and receiving packets
 	    // too fast
-		return @new Player(data2, blnIsMe, packet);
+		return new Player(data2, blnIsMe, packet);
 	}
 	
 	//					 //
@@ -858,7 +858,7 @@ class Pickle extends PCL {
 			    }
 		    }
 		}
-		if(@roomWas == true && @roomIDWas == roomID){
+		if(roomWas == true && roomIDWas == roomID){
 				return false;
 		}
 		if (this.extRoomID != roomID){
