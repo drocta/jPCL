@@ -165,7 +165,7 @@ function Player() {
 			this.intX = data[12];
 			this.intY = data[13];
 			this.f12 = data[14];
-			this.blnIsMember = (boolean)data[15];
+			this.blnIsMember = !!data[15];
 			this.intMemberDays = data[16];
 		} else {
 			this.intID = data[0];
@@ -183,7 +183,7 @@ function Player() {
 			this.intX = data[12];
 			this.intY = data[13];
 			this.f12 = data[14];
-			this.blnIsMember = (boolean)data[15];
+			this.blnIsMember = !!data[15];
 			this.intMemberDays = data[16];
 			if(packet !== false){
 				array_shift(packet);
