@@ -39,7 +39,7 @@ pusleep();
 this.arrPlayers[id].getID();
 psleep();
 fclose();
-is_numeric()
+//is_numeric()//done
 array_shift();
 }
 //
