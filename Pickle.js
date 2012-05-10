@@ -112,10 +112,10 @@ function Player() {
 			return returnthis;*/
 		var data = explode('|', data2);
 		if (!blnIsMe) {
-		   	this.intID = data[0];
-		   	this.strUsername = data[1];
+			this.intID = data[0];
+			this.strUsername = data[1];
 			// [2] isn't saved for now
-		   	this.intColor = data[3];
+			this.intColor = data[3];
 			this.intHead = data[4];
 			this.intFace = data[5];
 			this.intNeck = data[6];
