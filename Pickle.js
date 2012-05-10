@@ -14,6 +14,47 @@ function array_key_exists(key, array) {
 		return false;
 	}*/
 }
+function array_shift (inputArr) {
+    // http://kevin.vanzonneveld.net
+    // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+    // +   improved by: Martijn Wieringa
+    // %        note 1: Currently does not handle objects
+    // *     example 1: array_shift(['Kevin', 'van', 'Zonneveld']);
+    // *     returns 1: 'Kevin'
+    var props = false,
+        shift = undefined,
+        pr = '',
+        allDigits = /^\d$/,
+        int_ct = -1,
+        _checkToUpIndices = function (arr, ct, key) {
+            // Deal with situation, e.g., if encounter index 4 and try to set it to 0, but 0 exists later in loop (need to
+            // increment all subsequent (skipping current key, since we need its value below) until find unused)
+            if (arr[ct] !== undefined) {
+                var tmp = ct;
+                ct += 1;
+                if (ct === key) {
+                    ct += 1;
+                }
+                ct = _checkToUpIndices(arr, ct, key);
+                arr[ct] = arr[tmp];
+                delete arr[tmp];
+            }
+            return ct;
+        };
+
+
+    if (inputArr.length === 0) {
+        return null;
+    }
+    if (inputArr.length > 0) {
+        return inputArr.shift();
+    }
+
+/*
+    UNFINISHED FOR HANDLING OBJECTS
+    php.js has a work in progress part of this, commented out. I am not including it to save space.
+    */
+}
 function explode (delimiter, string, limit) {
 
     if ( arguments.length < 2 || typeof delimiter == 'undefined' || typeof string == 'undefined' ) {
