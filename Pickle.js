@@ -37,6 +37,17 @@ function ord(string) {
     }
     return code;
 }
+function is_numeric (mixed_var) {
+    // http://kevin.vanzonneveld.net
+    // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+    // +   improved by: David
+    // +   improved by: taith
+    // +   bugfixed by: Tim de Koning
+    // +   bugfixed by: WebDevHobo (http://webdevhobo.blogspot.com/)
+    // +   bugfixed by: Brett Zamir (http://brett-zamir.me)
+    //retreived from php.js
+    return (typeof(mixed_var) === 'number' || typeof(mixed_var) === 'string') && mixed_var !== '' && !isNaN(mixed_var);
+}
 /*
 the long file unpacking thing is here. We are going to do that some other way, not a direct translation
 */
