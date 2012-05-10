@@ -40,7 +40,7 @@ this.arrPlayers[id].getID();
 psleep();
 fclose();
 //is_numeric()//done
-array_shift();
+//array_shift();//done
 }
 //
 funcsdefined{ 
