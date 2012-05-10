@@ -1,3 +1,8 @@
+/* global window */
+
+/* jshint adsafe: false, bitwise: false, browser: false, cap: false, css: false, debug: false, devel: false, eqeqeq: true, evil: false, forin: false, fragment: false, immed: true, indent: 4, laxbreak: false, maxerr: 100, maxlen: 80, newcap: true, nomen: false, on: true, onevar: false, passfail: false, plusplus: false, regexp: false, rhino: false, safe: false, sidebar: false, strict: false, sub: false, undef: true, white: false, widget: false */
+//This is an attempt to translate PCL to javascript.
+//It should be jslint compliant.
 function echo(textecho) {
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
 }
