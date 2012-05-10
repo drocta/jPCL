@@ -92,7 +92,9 @@ function Player() {
 	this.__construct = function (data2, blnIsMe, packet) {
 		blnIsMe = (typeof blnIsMe === "undefined") ? false  : blnIsMe;
 		packet = (typeof packet === "undefined") ? false : packet;
-		if (is_numeric(data2)) return {"id": data2};//array('id' => data2);//TODO this might be a problem, depending on things.
+		if (is_numeric(data2)) {
+			return {"id": data2};
+		}//array('id' => data2);//TODO this might be a problem, depending on things.
 			//alternatively use
 			/*var returnthis = new Array();
 			returnthis['id']=data2;
