@@ -88,7 +88,9 @@ function explode (delimiter, string, limit) {
 	
 	// Positive limit
 	if ( limit > 0 ){
-		if ( limit >= s.length ) return s;
+		if ( limit >= s.length ) {
+			return s;
+		}
 		return s.slice( 0, limit - 1 ).concat( [ s.slice( limit - 1 ).join( delimiter ) ] );
 	}
 
