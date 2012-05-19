@@ -5,6 +5,7 @@
 //It should be jslint compliant.
 function echo(textecho) {
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
+	return true;
 }
 function array_key_exists(key, array) {
 	return (key in array);
@@ -256,7 +257,7 @@ function Player() {
 		return this.intID;	
 	};
 	
-	getUsername = function() {
+	this.getUsername = function() {
 		return this.strUsername;	
 	};
 	
@@ -355,7 +356,7 @@ its possible more should be changed but I don't know javascript very well, and I
 //function stribet(){}//replaces with between as defined below
 //function strbet(){}
 String.prototype.between = function(prefix, suffix){
-	s=this;
+	var s=this;
 	var i = s.indexOf(prefix);
 	if(i >= 0){
 		s=s.substring(i + prefix.length)
