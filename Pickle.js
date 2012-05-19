@@ -249,96 +249,96 @@ function Player() {
 				this.intTimeZoneOffset = packet[10];
 			}
 		}
-	}
+	};
 	
 	// Accesor methods
 	this.getID = function() {
 		return this.intID;	
-	}
+	};
 	
 	getUsername = function() {
 		return this.strUsername;	
-	}
+	};
 	
 	this.getAge = function() {
 		return this.intAge;	
-	}
+	};
 	
 	this.getCoins = function() {
 		return this.intCoins;	
-	}
+	};
 	
 	this.isMember = function() {
 		return this.blnIsMember;
-	}
+	};
 	
 	this.getMemberDays = function() {
 		return this.intMemberDays;
-	}
+	};
 		
 	this.getMemberRemaining = function() {
 		return this.intMemberRemaining;	
-	}
+	};
 	
 	this.isApproved = function() {
 		return this.blnIsAproved;
-	}
+	};
 	
 	this.getPositionX = function() {
 		return this.intX;	
-	}
+	};
 	
 	this.getPositionY = function() {
 		return this.intY;	
-	}
+	};
 	
 	this.getColor = function() {
 		return this.intColor;	
-	}
+	};
 	
 	this.getHeadItem = function() {
 		return this.intHead;	
-	}
+	};
 
 	this.getFaceItem = function() {
 		return this.intFace;   
-	}
+	};
 	
 	this.getNeckItem = function() {
 		return this.intNeck;	
-	}
+	};
 	
 	this.getBodyItem = function() {
 		return this.intBody;	
-	}
+	};
 		
 	this.getFeetItem = function() {
 		return this.intFeet;	
-	}
+	};
 
 	this.getHandItem = function() {
 		return this.intHand;	
-	}
+	};
 
 	this.getFlagItem = function() {
 		return this.intFlag;	
-	}
+	};
 	
 	this.getPhoto = function() {
 		return this.intPhoto;	
-	}
+	};
 	
 	this.getFrame = function() {
 		return this.intFrame;	
-	}
+	};
 	
 	this.getTimeZoneOffset = function() {
 		return this.intTimeZoneOffset;	
-	}
+	};
 	
 	this.getMinutesPlayed = function() {
 		return this.intMinutesPlayed;
-	}
+	};
 	
 }
 
