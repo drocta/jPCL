@@ -391,7 +391,8 @@ define('VERSION_URL', 'http://pcl.clubpenguinphp.info/version.txt');
 //PHP PCL checks for newer versions here. because this is to be embedded in webpages, that would be kind of silly, and so it is not done here.
 echo("you are using a javascript port of PCL5. PCL5 was made by andyh2, Mike, Charles, StaticABC and Test. The javascript version came from the ether.");
 //start of PCL class:
-abstract class PCL {
+//abstract class PCL {
+function PCL(){
 	//TODO: can javascript classes even be abstract?
 	//Public members
 	public config = new Array();
@@ -416,7 +417,7 @@ abstract class PCL {
 	private _events = new Array();
 
 	// Constructor of the Pickle Class. It Parses the ini files, and initialises input streams
-	function __construct() {
+	this.__construct() = function() {
 			global pclconfig, globservers, globrooms, globitems, globsafechat, globerrors;
 			// Sets array pointers.
 			// So that there is only one actual array if you have multiple instances of PCL class.
@@ -433,15 +434,15 @@ abstract class PCL {
 			// Stops fread(STDIN, 8192) from freezing PCL if used on the web
 			stream_set_blocking(STDIN, false);//TODO this function will have to be changed or removed becuase it is not in javascript probably
 			// register_tick_function(array(&this, 'tickHandler'), true);
-	}
-	
-	function tickHandler(){
+	};
+	this.__construct();
+	this.tickHandler = function() {
 		echo "called " + this.ticks++ + "\n";
-	}
+	};
 	//is tickshandler even used anymore?
 	
 	// @param ticktime: set to -1 to tick on every loop
-	function start(block = true, ticktime = 1) {
+	this.start(block = true, ticktime = 1) {
 		if (block) {
 			time = time() + ticktime;
 			while (this.run) {
@@ -453,25 +454,25 @@ abstract class PCL {
 			}
 			fclose(this.sock);
 		}
-	}
+	};
 	
-	function serverId(strName) {
+	this.serverId = function(strName) {
 		foreach (this.servers as value => server) {
 			if (server['name'] == strName) {
 				return value;
 			}
 		}
 		return -1;
-	}
+	};
 	
-	function serverName(intId) {
+	this.serverName = function(intId) {
 		if (array_key_exists(intId, this.servers)) {
 			return this.servers[intId]['name'] + "";
 		}
 		return "-1";
-	}
+	};
 	
-	function printServerData() {
+	this.printServerData = function() {
 		foreach (this.serverlist as key => serverobject) {
 			if (this.serverName(key) == -1) {
 				if (serverobject < 2)
@@ -485,16 +486,16 @@ abstract class PCL {
 					echo "Server: \"" + this.serverName(key) + "\" is " + serverobject + " sixths full.\n";
 			}
 		}
-	}
+	};
 	
 	// Function to find the correct login port by the username strUsername
-	function loginPort(strUsername) {
+	this.loginPort = function(strUsername) {
 		strUsername = strtoupper(strUsername);
 		return(ord(strUsername) % 2) ? 3724 : 6112;
-	}
+	};
 	
 	// Generates the key to athenticate with the server
-	function generateKey(password, rand_key, isLogin = false) {
+	this.generateKey = function(password, rand_key, isLogin = false) {
 		if (isLogin) {
 			global pclkey;
 			stringtoencode = 'http://pcl.clubpenguinphp.info/pclkey.php?PCLKEY=' + urlencode(pclkey) + '&PASSWORD=' + urlencode(password) + '&RANDKEY=' + urlencode(rand_key);
@@ -510,17 +511,17 @@ abstract class PCL {
 			Key = this.encryptPassword(password + rand_key) + password;//This time, password is actually the loginkey from the login server
 			return Key;
 		}
-	}
+	};
 	
 	// Returns the md5 hash strPassword, with two halves reversed.
-	function encryptPassword(strPassword) {
+	this.encryptPassword = function(strPassword) {
 		strHash = md5(strPassword);
 		strHash = substr(strHash, 16, 16) + substr(strHash, 0, 16);
 		return strHash;
-	}
+	};
 	
 	// Initialises the connection
-	function initCon(strIp = "204.75.167.6", intPort = NULL){
+	this.initCon = function(strIp = "204.75.167.6", intPort = NULL){
 		if(intPort === NULL) intPort = this.loginPort(this.username);
 		sock = fsockopen(strIp, intPort);
 		fwrite(sock, '<policy-file-request/>' + chr(0));
@@ -548,16 +549,16 @@ abstract class PCL {
 		}
 		this.sock =& sock;
 		return data;
-	}
-	function packetInArray(type, a, pisarray = true, retarray = false){
+	};
+	this.packetInArray = function(type, a, pisarray = true, retarray = false){
 		foreach(a as p){
 			if(p[0] == type){
 				return p;
 			}
 		}
 		return -1;
-	}
-	function connect(username, password, server = -1, debug = false) {
+	};
+	this.connect = function(username, password, server = -1, debug = false) {
 		this.username = username;
 		if (server != null)
 		    this.server = server;
@@ -647,19 +648,19 @@ abstract class PCL {
 		echo 'Successfully connected to ' , this.servername , "\n";
 		this.run = true;
 		return -1;
-	}
+	};
 	
-	function loadPlayer(data2, blnIsMe = false, packet = false) {
+	this.loadPlayer = function(data2, blnIsMe = false, packet = false) {
 	    // Supress errors and warnings on invalid packets
 	    // These warnings can occur when sending and receiving packets
 	    // too fast
 		return new Player(data2, blnIsMe, packet);
-	}
+	};
 	
 	//					 //
 	// Utility functions //
 	//					 //
-	function sendPacket(data = NULL) {
+	this.sendPacket = function(data = NULL) {
 		if(func_num_args() == 0)
 			return -1;
 		if(func_num_args != 1)
@@ -667,14 +668,14 @@ abstract class PCL {
 		data = '%xt%' + implode('%', data) + '%' + chr(0);
 		fwrite(this.sock, data);
 		return 0;
-	}
-	function sendRawPacket(strData = NULL){
+	};
+	this.sendRawPacket = function(strData = NULL){
 		if(func_num_args() > 1){
 			strData = '%xt%' + implode('%', func_get_args()) + '%';
 		}
 		fwrite(this.sock, strData + chr(0));
-	}
-	function decodePacket(data = null, old = false){
+	};
+	this.decodePacket = function(data = null, old = false){
 		if(data == null){
 			data = this.readPacket();
 		}
@@ -695,18 +696,18 @@ abstract class PCL {
 		}
 		//exit();
 		return array;
-	}
+	};
 	
-	function waitForPacket(strPart) {
+	this.waitForPacket = function(strPart) {
 	    do strData = this.readRawPacket();
 	    while(stripos(strData, strPart) === false);
 	    return strData;
-	}
+	};
 	
-	function readRawPacket(length = READ_LEN) {
+	this.readRawPacket = function(length = READ_LEN) {
 		return this.readPacket(length);
-	}
-	function readPacket(length = READ_LEN){
+	};
+	this.readPacket = function(length = READ_LEN){
 		do{
 			data = fread(this.sock, length);
 			if(!(strlen(data) -1 < 0)){
@@ -716,11 +717,11 @@ abstract class PCL {
 			}
 		} while(strlen(data) -1 < 0);
 		return data;
-	}
-	function attachEvent(event, function) {
+	};
+	this.attachEvent = function(event, function) {
 		this._events[event][] = function;
-	}
-	function raiseEvent(event, data) {
+	};
+	this.raiseEvent = function(event, data) {
 		if (!isset(this._events[event]))
 			return false;
 			
@@ -728,12 +729,12 @@ abstract class PCL {
 		foreach (this._events[event] as event) {
 			call_user_func_array(event, array_merge(new Array(this), data));
 		}
-	}
-	public function __call(function, args) {
+	};
+	public this.__call = function(function, args) {
 			args = implode(', ', args);
 			echo 'Call to nonexistent method:', function, '() with args "', args, "\" failed!\nCheck that you haven't misspelt a function name.\n";
 			sleep(5);
-	}
+	};
 }
 //end of PCL class
 
