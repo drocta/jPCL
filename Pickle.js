@@ -374,7 +374,7 @@ String.prototype.between = function(prefix, suffix){
 		}
 	}
 	return s;
-}
+};
 
 //end util functions
 
