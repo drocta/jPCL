@@ -395,26 +395,26 @@ echo("you are using a javascript port of PCL5. PCL5 was made by andyh2, Mike, Ch
 function PCL(){
 	//TODO: can javascript classes even be abstract?
 	//Public members
-	public config = new Array();
-	public emotes;
-	public error = -1;
-	public errort = "No error has ocurred\n";
-	public itemlist = new Array();
-	public key = '';
-	public objPlayer; // Object of the Player class
-	public arrPlayers = new Array(); // Array containing Player objects
-	public room = 0;
-	public roomlist;
-	public safelist;
-	public server = -1;
-	public servers;
-	public sock;
-	public x = 0;
-	public y = 0;
+	this.config = new Array();
+	this.emotes;
+	this.error = -1;
+	this.errort = "No error has ocurred\n";
+	this.itemlist = new Array();
+	this.key = '';
+	this.objPlayer; // Object of the Player class
+	this.arrPlayers = new Array(); // Array containing Player objects
+	this.room = 0;
+	this.roomlist;
+	this.safelist;
+	this.server = -1;
+	this.servers;
+	this.sock;
+	this.x = 0;
+	this.y = 0;
 
 	//Private members
-	private _ticks = 0;
-	private _events = new Array();
+	this._ticks = 0;
+	this._events = new Array();
 
 	// Constructor of the Pickle Class. It Parses the ini files, and initialises input streams
 	this.__construct() = function() {
