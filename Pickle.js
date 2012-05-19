@@ -359,7 +359,7 @@ String.prototype.between = function(prefix, suffix){
 	var s=this;
 	var i = s.indexOf(prefix);
 	if(i >= 0){
-		s=s.substring(i + prefix.length)
+		s=s.substring(i + prefix.length);
 	}
 	else {
 		return '';
