@@ -442,7 +442,7 @@ function PCL(){
 	};
 	this.__construct();
 	this.tickHandler = function() {
-		echo "called " + this.ticks++ + "\n";
+		echo("called " + this.ticks++ + "\n");
 	};
 	//is tickshandler even used anymore?
 	
@@ -483,14 +483,14 @@ function PCL(){
 		foreach (this.serverlist as key => serverobject) {
 			if (this.serverName(key) == -1) {
 				if (serverobject < 2)
-					echo "Server: " + key + " is " + serverobject + " sixth full.\n";
+					echo("Server: " + key + " is " + serverobject + " sixth full.\n");
 				else
-					echo "Server: " + key + " is " + serverobject + " sixths full.\n";
+					echo("Server: " + key + " is " + serverobject + " sixths full.\n");
 			} else {
 				if (serverobject < 2)
-					echo "Server: \"" + this.serverName(key) + "\" is " + serverobject + " sixth full.\n";
+					echo("Server: \"" + this.serverName(key) + "\" is " + serverobject + " sixth full.\n");
 				else
-					echo "Server: \"" + this.serverName(key) + "\" is " + serverobject + " sixths full.\n";
+					echo("Server: \"" + this.serverName(key) + "\" is " + serverobject + " sixths full.\n");
 			}
 		}
 	};
@@ -540,7 +540,7 @@ function PCL(){
 			data .= fread(sock, READ_LEN);
 			info = stream_get_meta_data(sock);
 			if (info['timed_out']) {
-				echo 'Connection timed out!';
+				echo('Connection timed out!');
 				fclose(sock);
 				sock = fsockopen(strIp, intPort);
 				fwrite(sock, '<policy-file-request/>' + chr(0));
@@ -550,7 +550,7 @@ function PCL(){
 				fwrite(sock, '<msg t=\'sys\'><body action=\'rndK\' r=\'-1\'></body></msg>' + chr(0));
 				usleep(70000);
 				stream_set_timeout(sock, 10);
-				echo "/" + chr(8);
+				echo("/" + chr(8));
 				data .= fread(sock, READ_LEN);
 			}
 		}
@@ -577,22 +577,22 @@ function PCL(){
 		}
 		if (this.server < 0) return 1;
 
-		echo '|' , chr(8);
+		echo('|' , chr(8));
 		data = this.initCon();
 		//randKey = strigbet(data, '<k>', '</k>');
 		randKey = data.between('<k>', '</k>');
-		echo '/' , chr(8);
+		echo('/' , chr(8));
 		key = this.generateKey(password, randKey, true);
 		fwrite(this.sock, '<msg t=\'sys\'><body action=\'login\' r=\'0\'><login z=\'' + LOGIN_ZONE + '\'><nick><![CDATA[' + strtolower(username) + ']]></nick><pword><![CDATA[' + key + ']]></pword></login></body></msg>' + chr(0));
 
 		data = this.readPacket();
-		echo '\\' + chr(8);
+		echo('\\' + chr(8));
 		if (stripos(data, 'xt%e')) {
 			//this.error = strigbet(data, '%xt%e%-1%', '%');
 			this.error = data.between('%xt%e%-1%', '%');
 			this.errort = this.errors[this.error];
 			this.run = false;
-			echo 'Error ID ', this.error, ': ', this.errort, "\n";
+			echo('Error ID ', this.error, ': ', this.errort, "\n");
 			return  this.error;
 		}
 
@@ -611,12 +611,12 @@ function PCL(){
 		strUnkown = data.between('%xt%l%-1%' + this.PlayerID + '%', '%');
 		lkey = data.between('%xt%l%-1%' + this.PlayerID + '%' + strUnkown + '%', '%');
 		fclose(this.sock);
-		echo '|' + chr(8);
+		echo('|' + chr(8));
 
 		data = this.initCon(this.servers[this.server]['ip'], this.servers[this.server]['port']);
 		randKey = data.between('<k>', '</k>');
 		key = this.generateKey(lkey, randKey);
-		echo '/' + chr(8);
+		echo('/' + chr(8));
 		fwrite(this.sock, '<msg t=\'sys\'><body action=\'login\' r=\'0\'><login z=\'' + SERVER_ZONE + '\'><nick><![CDATA[' + strtolower(username) + ']]></nick><pword><![CDATA[' + key + ']]></pword></login></body></msg>' + chr(0));
 		fwrite(this.sock, '%xt%s%j#js%-1%' + this.PlayerID + '%' + lkey + '%en%' + chr(0));
 		data = this.readPacket();
@@ -640,19 +640,19 @@ function PCL(){
 					this.room[this.extRoomID][id] = this.arrPlayers[id];
 				}
 				catch (PCLException e) {
-					echo e;
+					echo(e);
 				}
 			}
 		}
-		echo "-" + chr(8);
+		echo("-" + chr(8));
 		fwrite(this.sock, '%xt%s%i#gi%-1%' + chr(0));
 		fwrite(this.sock, '%xt%s%b#gb%-1%' + chr(0));
 		fwrite(this.sock, '%xt%s%n#gn%-1%' + chr(0));
 		fwrite(this.sock, '%xt%s%l#mst%-1%' + chr(0));
 		fwrite(this.sock, '%xt%s%p#pgu%-1%' + chr(0));
 		fwrite(this.sock, '%xt%s%u#glr%-1%' + chr(0));
-		echo '\\' + chr(8);
-		echo 'Successfully connected to ' , this.servername , "\n";
+		echo('\\' + chr(8));
+		echo('Successfully connected to ' , this.servername , "\n");
 		this.run = true;
 		return -1;
 	};
@@ -739,7 +739,7 @@ function PCL(){
 	};
 	public this.__call = function(function, args) {
 			args = implode(', ', args);
-			echo 'Call to nonexistent method:', function, '() with args "', args, "\" failed!\nCheck that you haven't misspelt a function name.\n";
+			echo('Call to nonexistent method:', function, '() with args "', args, "\" failed!\nCheck that you haven't misspelt a function name.\n");
 			sleep(5);
 	};
 }
@@ -948,7 +948,7 @@ class Pickle extends PCL {
 			if (!(stripos(data, this.PlayerID)) && (stripos(data, '|'))) {
 				info = explode('|', data);
 				id = info[0];
-				echo room + ' ' + message + ': ' + id + "\n";
+				echo(room + ' ' + message + ': ' + id + "\n");
 				this.privateMessage(id, message, mail);
 				sleep(4);
 			}
@@ -1009,7 +1009,7 @@ class Pickle extends PCL {
 									this.room[this.extRoomID][id] = this.arrPlayers[id].getID();
 								}
 								catch(PCLException e){
-								echo e;
+								echo(e);
 								}
 							}
 						}
@@ -1045,7 +1045,7 @@ class Pickle extends PCL {
 				}
 			}
 			return id;
-		} else echo name, " was not found in this room\n\n";
+		} else echo(name + " was not found in this room\n\n");
 	}
 	
 	function buddyRape(room){
