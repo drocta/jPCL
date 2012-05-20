@@ -426,13 +426,13 @@ function PCL(){
 			// Saves memory.
 			//TODO see how to do the & thing php has in javascript/
 			//& is like a derefference thing. it makes it so the one thing uses the value of the other thing, always.
-			this.config =& pclconfig;
-			this.servers =& globservers;
-			this.roomlist =& globrooms;
-			this.itemlist =& globitems;
-			this.safelist =& globsafechat;
-			this.errors =& globerrors;
-			this.emotes =& globemotes;
+			this.config = pclconfig;
+			this.servers = globservers;
+			this.roomlist = globrooms;
+			this.itemlist = globitems;
+			this.safelist = globsafechat;
+			this.errors = globerrors;
+			this.emotes = globemotes;
 			// Stops fread(STDIN, 8192) from freezing PCL if used on the web
 			stream_set_blocking(STDIN, false);//TODO this function will have to be changed or removed becuase it is not in javascript probably
 			// register_tick_function(array(&this, 'tickHandler'), true);
