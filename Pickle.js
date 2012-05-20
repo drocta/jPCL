@@ -10,6 +10,12 @@ function echo(textecho) {
 function pick(arg, def) {
 	return (typeof arg == 'undefined' ? def : arg);
 }
+function time () {
+    // http://kevin.vanzonneveld.net
+    // +   original by: GeekFG (http://geekfg.blogspot.com)
+    // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net) ,metjay, HKM
+    return Math.floor(new Date().getTime() / 1000);
+}
 function array_key_exists(key, array) {
 	return (key in array);
 	/*if (key in array) {
