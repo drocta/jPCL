@@ -4,7 +4,7 @@ define();
 array();//probably mostly done.
 differences in foreach()
 stream_set_blocking();
-time()
+//time()done
 this.process_packets();
 //array_key_exists()//done*
 strtoupper();
@@ -24,7 +24,7 @@ stream_get_meta_data();
 usleep();
 strtolower()
 str_replace();
-explode();
+//explode();//done*
 unset()
 func_num_args()
 func_get_args()
