@@ -7,6 +7,9 @@ function echo(textecho) {
 	document.getElementById("jPCLout").innerHTML = document.getElementById("jPCLout").innerHTML + textecho;
 	return true;
 }
+function pick(arg, def) {
+	return (typeof arg == 'undefined' ? def : arg);
+}
 function array_key_exists(key, array) {
 	return (key in array);
 	/*if (key in array) {
@@ -444,7 +447,9 @@ function PCL(){
 	//is tickshandler even used anymore?
 	
 	// @param ticktime: set to -1 to tick on every loop
-	this.start = function(block = true, ticktime = 1) {
+	this.start = function(block, ticktime) {
+		pick=pick(block,true);
+		ticktime=pick(ticktime,1);
 		if (block) {
 			time = time() + ticktime;
 			while (this.run) {
