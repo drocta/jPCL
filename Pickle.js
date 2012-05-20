@@ -391,18 +391,19 @@ define('VERSION_URL', 'http://pcl.clubpenguinphp.info/version.txt');
 //PHP PCL checks for newer versions here. because this is to be embedded in webpages, that would be kind of silly, and so it is not done here.
 echo("you are using a javascript port of PCL5. PCL5 was made by andyh2, Mike, Charles, StaticABC and Test. The javascript version came from the ether.");
 //start of PCL class:
+var pclconfig, globservers, globrooms, globitems, globsafechat, globerrors;
 //abstract class PCL {
 function PCL(){
 	//TODO: can javascript classes even be abstract?
 	//Public members
-	this.config = new Array();
+	this.config = [];
 	this.emotes;
 	this.error = -1;
 	this.errort = "No error has ocurred\n";
-	this.itemlist = new Array();
+	this.itemlist = [];
 	this.key = '';
 	this.objPlayer; // Object of the Player class
-	this.arrPlayers = new Array(); // Array containing Player objects
+	this.arrPlayers = []; // Array containing Player objects
 	this.room = 0;
 	this.roomlist;
 	this.safelist;
@@ -414,11 +415,12 @@ function PCL(){
 
 	//Private members
 	this._ticks = 0;
-	this._events = new Array();
+	this._events = [];
 
 	// Constructor of the Pickle Class. It Parses the ini files, and initialises input streams
 	this.__construct() = function() {
-			global pclconfig, globservers, globrooms, globitems, globsafechat, globerrors;
+			
+			
 			// Sets array pointers.
 			// So that there is only one actual array if you have multiple instances of PCL class.
 			// Saves memory.
