@@ -444,7 +444,7 @@ function PCL(){
 	//is tickshandler even used anymore?
 	
 	// @param ticktime: set to -1 to tick on every loop
-	this.start(block = true, ticktime = 1) {
+	this.start = function(block = true, ticktime = 1) {
 		if (block) {
 			time = time() + ticktime;
 			while (this.run) {
