@@ -443,7 +443,7 @@ function PCL(){
 			this.errors = globerrors;
 			this.emotes = globemotes;
 			// Stops fread(STDIN, 8192) from freezing PCL if used on the web
-			stream_set_blocking(STDIN, false);//TODO this function will have to be changed or removed becuase it is not in javascript probably
+			//stream_set_blocking(STDIN, false);//TODO this function will have to be changed or removed becuase it is not in javascript probably
 			// register_tick_function(array(&this, 'tickHandler'), true);
 	};
 	this.__construct();
@@ -462,7 +462,7 @@ function PCL(){
 				this.process_packets();
 				if (time() >= time) {
 						time = time() + ticktime;
-						this.raiseEvent('tick', new Array());
+						this.raiseEvent('tick', []);
 				}
 			}
 			fclose(this.sock);
@@ -607,7 +607,7 @@ function PCL(){
 		packet = packet[0];
 		servlist = packet[7];
 		servlist = explode("|", servlist);
-		this.serverlist = new Array();
+		this.serverlist = [];
 		foreach (servlist as server) {
 			dataserv = explode(",", server);
 			this.serverlist[dataserv[0]] = dataserv[1];
@@ -634,9 +634,9 @@ function PCL(){
 		packet = this.packetInArray('jr', packets);
 		this.intRoomID = packet[1];
 		this.extRoomID = packet[2];
-		this.arrPlayers = new Array();
-		this.room = new Array();
-		this.room[this.extRoomID] = new Array();
+		this.arrPlayers = [];
+		this.room = [];
+		this.room[this.extRoomID] = [];
 		foreach (packet as key => player) {
 			if (!(key <= 4)) {
 				id = '|' + player;
@@ -1077,7 +1077,7 @@ class Pickle extends PCL {
 		data = this.readRawPacket();
 		if(stripos(data, 'xt%e%')){
 			error = data.between('%xt%e%-1%', '%');
-			ret = new Array();
+			ret = [];
 			ret[] = data;
 			ret[] = DEFAULT_ERROR;
 			ret[] = error;
